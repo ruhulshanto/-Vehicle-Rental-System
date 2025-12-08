@@ -118,34 +118,6 @@ A backend API for a vehicle rental management system that handles:
 | created_at | TIMESTAMP | DEFAULT NOW() |
 | updated_at | TIMESTAMP | DEFAULT NOW() |
 
-### Project Structure
-vehicle-rental-system/
-├── src/
-│   ├── config/
-│   │   ├── index.ts          # Environment configuration
-│   │   └── db.ts             # Database connection and initialization
-│   ├── middleware/
-│   │   ├── auth.ts           # JWT authentication middleware
-│   │   └── logger.ts         # Request logging middleware
-│   ├── modules/
-│   │   ├── auth/             # Authentication module
-│   │   │   ├── auth.controller.ts
-│   │   │   ├── auth.routes.ts
-│   │   │   ├── auth.services.ts
-│   │   │   └── auth.types.ts
-│   │   ├── users/            # Users module
-│   │   ├── vehicles/         # Vehicles module
-│   │   └── bookings/         # Bookings module
-│   └── types/
-│       └── express/
-│           └── index.d.ts    # TypeScript declarations
-├── app.ts                    # Express application setup
-├── server.ts                 # Server entry point (local dev)
-├── vercel.json               # Vercel deployment configuration
-├── package.json
-├── tsconfig.json
-└── README.md
-
 ## ⚙️ Installation & Setup
 
 ### Prerequisites
