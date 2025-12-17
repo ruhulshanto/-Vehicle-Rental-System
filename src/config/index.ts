@@ -6,7 +6,11 @@ dotenv.config();
 const config = {
     port : process.env.PORT || 5000,
     connectionString : process.env.CONNECTION_STR || "",
-    jwtSecret : process.env.JWT_SECRET || "",
+    jwtSecret : process.env.JWT_SECRET,
+}
+
+if (!config.jwtSecret) {
+    throw new Error("FATAL ERROR: JWT_SECRET is not defined in environment variables.");
 }
 
 export default config;
