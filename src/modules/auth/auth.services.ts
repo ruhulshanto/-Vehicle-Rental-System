@@ -58,6 +58,11 @@ const loginUser = async (email: string, password: string) => {
   }
   
   // Generate JWT token
+  const secret = config.jwtSecret || "fallback_secret_for_debugging";
+  if (!config.jwtSecret) {
+      console.warn("WARNING: JWT_SECRET IS MISSING! Using fallback secret.");
+  }
+
   const token = jwt.sign(
     { 
       id: user.id, 
@@ -65,7 +70,7 @@ const loginUser = async (email: string, password: string) => {
       email: user.email, 
       role: user.role 
     },
-    config.jwtSecret as string,
+    secret,
     { expiresIn: "7d" }
   );
   

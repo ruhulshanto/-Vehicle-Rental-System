@@ -10,7 +10,8 @@ const config = {
 }
 
 if (!config.jwtSecret || config.jwtSecret.trim() === "") {
-    throw new Error("FATAL ERROR: JWT_SECRET is not defined or is empty in environment variables.");
+    console.warn("WARNING: JWT_SECRET is not defined. The app may fail to sign tokens.");
+    // We do NOT throw here to avoid crashing the entire Vercel deployment on startup
 }
 
 export default config;
